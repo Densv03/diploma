@@ -8,6 +8,8 @@ import { LettersLogComponent } from './components/letters-log/letters-log.compon
 import { AccountSettingComponent } from './components/account-setting/account-setting.component';
 import { AboutProjectComponent } from './components/about-project/about-project.component';
 import { MainSidenavComponent } from './components/main-sidenav/main-sidenav.component';
+import { NgSelectModule } from "@ng-select/ng-select";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { MainSidenavComponent } from './components/main-sidenav/main-sidenav.com
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    NgSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

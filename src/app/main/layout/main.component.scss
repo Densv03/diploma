@@ -1,0 +1,10 @@
+app-main-sidenav {
+  width: 25%;
+}
+
+::ng-deep {
+  app-create-letter {
+    width: 75%;
+    height: 100%;
+  }
+}

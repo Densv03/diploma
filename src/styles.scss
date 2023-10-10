@@ -1,4 +1,7 @@
+@use 'node_modules/@ngneat/hot-toast/src/styles/styles.scss';
 @import "styles/core/reset";
 
 @import "styles/shared/components/button";
 @import "styles/shared/components/link";
+
+@import "@ng-select/ng-select/themes/default.theme.css";

@@ -1,1 +1,13 @@
-<p>create-letter works!</p>
+<div class="create-letter">
+  <form [formGroup]="form" (ngSubmit)="createLetter()">
+    <div class="create-letter__textarea">
+      <p>Enter body of your letter</p>
+      <textarea placeholder="Type text here..." class="w-100" style="min-height: 200px" formControlName="letter"></textarea>
+    </div>
+    <div class="amount-letters">
+      <p>Select amount of modified letters: </p>
+      <ng-select [items]="amountDropdown" bindLabel="label" bindValue="value" [searchable]="false" placeholder="Enter amount of generated letters" formControlName="amount"></ng-select>
+    </div>
+    <button class="app-button">Generate letter</button>
+  </form>
+</div>

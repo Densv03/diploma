@@ -1,0 +1,15 @@
+.create-letter {
+  padding: 20px 30px;
+  background: #e8e8e8;
+  height: 100%;
+
+  &__textarea textarea {
+    resize: none;
+    padding: 5px;
+  }
+
+  .amount-dropdown {
+    border: 1px solid #000;
+    background-color: #fff;
+  }
+}
