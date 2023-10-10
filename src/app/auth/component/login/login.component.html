@@ -1,0 +1,16 @@
+<form class="d-flex justify-content-around flex-column" [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="header" style="display: flex;justify-content: space-between;">
+    <div></div>
+    <h2>Login</h2>
+    <button (click)="goToRegister()" class="app-button" type="button">Sign up</button>
+  </div>
+  <div class="login-wrapper">
+    <p>Username</p>
+    <input type="text" placeholder="Enter login" class="w-100" formControlName="username">
+  </div>
+  <div class="password-wrapper mb-4">
+    <p>Password</p>
+    <input type="password" placeholder="Enter password" class="w-100" formControlName="password">
+  </div>
+  <button class="app-button">Login</button>
+</form>

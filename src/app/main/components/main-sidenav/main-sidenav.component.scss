@@ -1,0 +1,9 @@
+.sidenav {
+  background-color: #000; height: 100%;
+  padding: 20px 30px;
+}
+.sidenav-option {
+  &--active {
+    border-bottom: 1px solid #fff;
+  }
+}

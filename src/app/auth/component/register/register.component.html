@@ -1,0 +1,20 @@
+<form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <h2>Sign up</h2>
+    <button (click)="redirectToLogin()" class="app-button">Log in</button>
+  </div>
+  <div class="login-wrapper">
+    <p>Username</p>
+    <input type="text" placeholder="Enter login" class="w-100" formControlName="username">
+  </div>
+  <div class="password-wrapper">
+    <p>Password</p>
+    <input type="text" placeholder="Enter login" class="w-100" formControlName="password">
+  </div>
+  <div class="repeat-password-wrapper mb-4">
+    <p>Repeat password</p>
+    <input type="password" placeholder="Enter password" class="w-100" formControlName="repeatPassword">
+  </div>
+  <button class="app-button">Login</button>
+</form>
