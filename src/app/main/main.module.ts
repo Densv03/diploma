@@ -10,6 +10,7 @@ import { AboutProjectComponent } from './components/about-project/about-project.
 import { MainSidenavComponent } from './components/main-sidenav/main-sidenav.component';
 import { NgSelectModule } from "@ng-select/ng-select";
 import { ReactiveFormsModule } from "@angular/forms";
+import { LetterBlockComponent } from './components/letter-block/letter-block.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     LettersLogComponent,
     AccountSettingComponent,
     AboutProjectComponent,
-    MainSidenavComponent
+    MainSidenavComponent,
+    LetterBlockComponent,
   ],
   imports: [
     CommonModule,
