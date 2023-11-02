@@ -10,15 +10,17 @@ import { AuthService } from "../../../../service/auth.service";
 })
 export class RegisterComponent {
   signupForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    repeatPassword: new FormControl('', [Validators.required]),
+    firstName: new FormControl<string | null>(null, [Validators.required]),
+    lastName: new FormControl<string | null>(null, [Validators.required]),
+    email: new FormControl<string | null>(null, [Validators.required, Validators.email]),
+    password: new FormControl<string | null>(null, [Validators.required]),
   });
 
   constructor(private router: Router,
               private authService: AuthService) { }
 
   public signup(): void {
+    console.log(this.signupForm.valid)
     if (this.signupForm.invalid) {
       return;
     }

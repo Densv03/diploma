@@ -8,7 +8,7 @@ import { Observable, tap } from "rxjs";
 export class AuthService {
   constructor(private apiService: ApiService) { }
   public login(username: string, password: string): Observable<any> {
-    return this.apiService.post('auth/login', {username, password}).pipe(
+    return this.apiService.post('user/login', {username, password}).pipe(
       tap((response: any) => {
         localStorage.setItem('token', response.access_token);
       }),
@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   public register(username: string, password: string): Observable<any> {
-    return this.apiService.post('auth/register', {username, password}).pipe(
+    return this.apiService.post('user', {username, password}).pipe(
       tap((response: any) => {
         localStorage.setItem('token', response.access_token);
       }),

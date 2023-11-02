@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent {
   public loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
 
@@ -24,7 +24,7 @@ export class LoginComponent {
       return;
     }
 
-    this.authService.login(this.loginForm.value.username!, this.loginForm.value.password!).subscribe(data => {
+    this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe(data => {
       console.log(data);
       this.router.navigate(['main', 'create-letter']);
     });

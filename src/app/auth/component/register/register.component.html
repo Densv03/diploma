@@ -1,20 +1,26 @@
-<form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
   <div class="d-flex justify-content-between">
     <div></div>
     <h2>Sign up</h2>
     <button (click)="redirectToLogin()" class="app-button">Log in</button>
   </div>
-  <div class="login-wrapper">
-    <p>Username</p>
-    <input type="text" placeholder="Enter login" class="w-100" formControlName="username">
+  <form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
+  <div class="formcontrols-wrapper">
+    <div class="formcontrol">
+      <p>First name</p>
+      <input type="text" placeholder="Enter first name" class="w-100" formControlName="firstName">
+    </div>
+    <div class="formcontrol">
+      <p>Last name</p>
+      <input type="text" placeholder="Enter last name" class="w-100" formControlName="lastName">
+    </div>
+    <div class="formcontrol">
+      <p>E-mail</p>
+      <input type="text" placeholder="Enter email" class="w-100" formControlName="email">
+    </div>
+    <div class="formcontrol mb-4">
+      <p>Password</p>
+      <input type="text" placeholder="Enter login" class="w-100" formControlName="password">
+    </div>
   </div>
-  <div class="password-wrapper">
-    <p>Password</p>
-    <input type="text" placeholder="Enter login" class="w-100" formControlName="password">
-  </div>
-  <div class="repeat-password-wrapper mb-4">
-    <p>Repeat password</p>
-    <input type="password" placeholder="Enter password" class="w-100" formControlName="repeatPassword">
-  </div>
-  <button class="app-button">Login</button>
+  <button class="app-button">Sign Up</button>
 </form>
