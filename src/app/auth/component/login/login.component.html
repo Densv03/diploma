@@ -7,10 +7,14 @@
   <div class="login-wrapper">
     <p>E-mail</p>
     <input type="text" placeholder="Enter login" class="w-100" formControlName="email">
+    <p *ngIf="formState['email'].touched && formState['email'].hasError('email') &&
+     !formState['email'].hasError('required')">Email is invalid</p>
+    <p *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</p>
   </div>
   <div class="password-wrapper mb-4">
     <p>Password</p>
     <input type="password" placeholder="Enter password" class="w-100" formControlName="password">
+    <p *ngIf="formState['password'].touched && formState['password'].hasError('required')">Password is required</p>
   </div>
   <button class="app-button">Login</button>
 </form>

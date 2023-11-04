@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { AuthService } from "../../../../service/auth.service";
 import { Router } from "@angular/router";
 import {HotToastService} from "@ngneat/hot-toast";
@@ -12,7 +12,7 @@ import {catchError, of} from "rxjs";
 })
 export class LoginComponent {
   public loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
 
@@ -21,6 +21,8 @@ export class LoginComponent {
     private router: Router,
     private hotToastService: HotToastService) {
   }
+
+  public formState: { [key: string]: AbstractControl<any, any> } = this.loginForm.controls;
 
   public login(): void {
     if (this.loginForm.invalid) {
