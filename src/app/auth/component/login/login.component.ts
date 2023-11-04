@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../../../service/auth.service";
 import { Router } from "@angular/router";
+import {HotToastService} from "@ngneat/hot-toast";
+import {catchError, of} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private hotToastService: HotToastService) {
   }
 
   public login(): void {
@@ -24,13 +27,19 @@ export class LoginComponent {
       return;
     }
 
-    this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe(data => {
-      console.log(data);
+    this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!)
+      .pipe(
+        catchError(() => {
+          this.hotToastService.error('Email or password is incorrect');
+          return of(null);
+        })
+      )
+      .subscribe(data => {
       this.router.navigate(['main', 'create-letter']);
     });
   }
 
-  goToRegister() {
+  goToRegister(): void {
     this.router.navigate(['/auth/register']);
   }
 }
