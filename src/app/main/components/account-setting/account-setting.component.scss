@@ -1,0 +1,16 @@
+.account-settings {
+  height: 100%;
+  padding: 20px 30px;
+  background-color: #D9D9D9;
+
+  &__control {
+    margin-bottom: 10px;
+    label {
+      width: 20%;
+    }
+
+    input {
+      width: 30%;
+    }
+  }
+}
