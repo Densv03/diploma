@@ -3,8 +3,6 @@ import { HotToastService } from "@ngneat/hot-toast";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LetterService } from "../../service/letter.service";
 import { BehaviorSubject, map } from "rxjs";
-import { HttpResponse } from "@angular/common/http";
-import { CreateLetter } from "../../models/create-letter.model";
 
 @Component({
   selector: 'app-create-letter',
@@ -16,13 +14,14 @@ export class CreateLetterComponent implements OnInit {
               private letterService: LetterService) {
   }
 
-  public form: FormGroup = new FormGroup<{ letter: FormControl<string | null>, amount: FormControl<string | null> }>({
-    letter: new FormControl<string | null>(null, [Validators.required]),
-    amount: new FormControl<string | null>(null, [Validators.required]),
-  });
+  public form: FormGroup = new FormGroup({
+    generateLabelRequest: this.getGenerateLabelFormGroup(),
+    generateMailDescriptionRequest: this.getGenerateMailDescriptionFormGroup(),
+    mailConfigurationRequest: this.getMailConfigFormGroup(),
+  })
 
-  private generatedLettersSubject = new BehaviorSubject<string[]>([]);
-  public generatedLetters$ = this.generatedLettersSubject.asObservable();
+  private generatedLettersSource = new BehaviorSubject<string>('');
+  public generatedLetters$ = this.generatedLettersSource.asObservable();
 
   ngOnInit(): void {
   }
@@ -32,35 +31,66 @@ export class CreateLetterComponent implements OnInit {
     {value: '2', label: '2'},
     {value: '3', label: '3'},
     {value: '4', label: '4'},
+    {value: '5', label: '5'},
   ];
 
+  public styleDropdown = [
+    {value: 'Academic', label: 'Academic'},
+    {value: 'Business', label: 'Business'},
+    {value: 'Literary', label: 'Literary'},
+    {value: 'Journalistic', label: 'Journalistic'},
+    {value: 'Conversational', label: 'Conversational'},
+
+    ]
+
   public createLetter(): void {
+    console.log(this.form);
     console.log('create letter')
     if (this.form.invalid) {
       this.h.error('Form invalid');
       return;
     }
 
-    const {amount, letter} = this.form.value as CreateLetter;
-    if (isNaN(+amount)) {
-      this.h.error('Something with amount happen. Please reload this page and try again.');
-      return;
-    }
-    this.letterService.createLetter({letter, amount: +amount}).pipe(
+    const amount = this.form.get('mailConfigurationRequest')?.get('templateCount')?.value;
+    this.letterService.createLetter(this.form.value).pipe(
       this.h.observe({
         loading: `Generating ${amount} ${+amount === 1 ? 'letter' : 'letters'}...`,
         success: 'Letter generated successfully',
         error: 'Error generating letter'
-      }),
-      map(event => {
-        if (event instanceof HttpResponse) {
-          return event.body;
-        } else {
-          return [];
-        }
-      })
-    ).subscribe(res => {
-      this.generatedLettersSubject.next(res ?? []);
-    })
+      })).subscribe(res => {
+      this.generatedLettersSource.next(res as any as string);
+      console.log(this.generatedLettersSource.value)
+      console.log(res)
+    });
+  }
+
+  private getGenerateLabelFormGroup(): FormGroup {
+    return new FormGroup<{ name: FormControl<string | null>, description: FormControl<string | null> }>({
+      name: new FormControl<string | null>(null, [Validators.required]),
+      description: new FormControl<string | null>(null, [Validators.required]),
+    });
+  }
+
+  private getGenerateMailDescriptionFormGroup(): FormGroup {
+    return new FormGroup<{ title: FormControl<string | null>, body: FormControl<string | null> }>({
+      title: new FormControl<string | null>(null, [Validators.required]),
+      body: new FormControl<string | null>(null, [Validators.required]),
+    });
+  }
+
+  private getMailConfigFormGroup(): FormGroup {
+    return new FormGroup<{
+      from: FormControl<string | null>,
+      style: FormControl<string | null>,
+      usingPlaceHolder: FormControl<boolean | null>,
+      templateCount: FormControl<number | null>,
+      sentenceCount: FormControl<number | null>
+    }>({
+      from: new FormControl<string | null>(null, [Validators.required]),
+      style: new FormControl<string | null>(null, [Validators.required]),
+      usingPlaceHolder: new FormControl<boolean>(false),
+      templateCount: new FormControl<number | null>(null),
+      sentenceCount: new FormControl<number>(0),
+    });
   }
 }

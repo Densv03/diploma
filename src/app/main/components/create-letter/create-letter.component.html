@@ -1,13 +1,65 @@
 <div class="create-letter">
   <form [formGroup]="form" (ngSubmit)="createLetter()">
-    <div class="create-letter__textarea">
-      <p>Enter body of your letter</p>
-      <textarea placeholder="Type text here..." class="w-100" style="min-height: 200px" formControlName="letter"></textarea>
+    <div formGroupName="generateLabelRequest" class="d-flex flex-column">
+      <div>
+        <p>Enter your label name</p>
+        <input type="text" formControlName="name" placeholder="Enter label name" class="w-100">
+      </div>
+      <div>
+        <p>Enter your label description</p>
+        <input type="text" formControlName="description" placeholder="Enter label description" class="w-100">
+      </div>
     </div>
-    <div class="amount-letters">
-      <p>Select amount of modified letters: </p>
-      <ng-select [items]="amountDropdown" bindLabel="label" bindValue="value" [searchable]="false" placeholder="Enter amount of generated letters" formControlName="amount"></ng-select>
+    <div formGroupName="generateMailDescriptionRequest">
+      <div>
+        <p>Enter title for your letter</p>
+        <input type="text" formControlName="title" placeholder="Enter letter title" class="w-100">
+      </div>
+      <div>
+        <p>Enter your letter</p>
+        <textarea type="text" formControlName="body" placeholder="Enter letter text" class="w-100" rows="5"></textarea>
+      </div>
+    </div>
+    <div formGroupName="mailConfigurationRequest">
+      <div>
+        <p>Enter person from whose name letter will be written</p>
+        <input type="text" formControlName="from" placeholder="Enter person from whose name letter will be written" class="w-100">
+      </div>
+      <div>
+        <p>Enter style of your letter</p>
+        <ng-select [items]="styleDropdown"
+                   bindLabel="label"
+                   bindValue="value"
+                   [searchable]="false"
+                   placeholder="Enter letter style"
+                   formControlName="style"
+        ></ng-select>
+      </div>
+      <div class="d-flex">
+        <p class="d-block" style="margin-right: 10px;">Use placeholders</p>
+        <input type="checkbox" formControlName="usingPlaceHolder">
+      </div>
+      <div>
+        <p>Enter amount of generated letters</p>
+        <ng-select [items]="amountDropdown"
+                   bindLabel="label"
+                   bindValue="value"
+                   [searchable]="false"
+                   placeholder="Enter amount of generated letters"
+                   formControlName="templateCount"></ng-select>
+      </div>
+      <div>
+        <p>Enter amount of sentences that will be generated</p>
+        <input type="number"
+               formControlName="sentenceCount"
+               placeholder="Enter amount of sentences that will be generated"
+               min="1"
+               max="20">
+      </div>
     </div>
     <button class="app-button">Generate letter</button>
   </form>
+  <div>
+    {{generatedLetters$ | async}}
+  </div>
 </div>

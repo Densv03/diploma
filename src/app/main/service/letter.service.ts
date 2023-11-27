@@ -9,8 +9,10 @@ import { CreateLetter } from "../models/create-letter.model";
 })
 export class LetterService {
 
-  constructor(private apiService: ApiService) { }
-  public createLetter(data: CreateLetter): Observable<HttpEvent<string[]>> {
-    return this.apiService.post<string[]>('auth/generate-letter', data);
+  constructor(private apiService: ApiService) {
+  }
+
+  public createLetter(data: CreateLetter): Observable<HttpEvent<string>> {
+    return this.apiService.post<string>('generator', data, {responseType: 'text'});
   }
 }
