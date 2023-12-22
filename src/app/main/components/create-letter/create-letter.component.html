@@ -5,6 +5,9 @@
         <p>Enter your label name</p>
         <input type="text" formControlName="name" placeholder="Enter label name" class="w-100">
       </div>
+      <div *ngIf="generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched">
+        Label already exists. Please choose other one
+      </div>
       <div>
         <p>Enter your label description</p>
         <input type="text" formControlName="description" placeholder="Enter label description" class="w-100">
@@ -23,7 +26,8 @@
     <div formGroupName="mailConfigurationRequest">
       <div>
         <p>Enter person from whose name letter will be written</p>
-        <input type="text" formControlName="from" placeholder="Enter person from whose name letter will be written" class="w-100">
+        <input type="text" formControlName="from" placeholder="Enter person from whose name letter will be written"
+               class="w-100">
       </div>
       <div>
         <p>Enter style of your letter</p>

@@ -1,11 +1,8 @@
 app-main-sidenav {
   width: 25%;
+  max-width: 200px;
 }
 
-::ng-deep {
-  app-create-letter,
-  app-account-setting {
-    width: 75%;
-    height: 100%;
-  }
+.content {
+  width: 100%;
 }

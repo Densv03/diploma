@@ -25,8 +25,8 @@ export class MainSidenavComponent implements OnInit {
       label: 'Create letter'
     },
     {
-      link: '/main/letters-log',
-      label: 'Letters log'
+      link: '/main/labels-list',
+      label: 'Labels list'
     },
     {
       link: '/main/account-settings',

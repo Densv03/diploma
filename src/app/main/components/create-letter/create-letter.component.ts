@@ -3,28 +3,29 @@ import { HotToastService } from "@ngneat/hot-toast";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LetterService } from "../../service/letter.service";
 import { BehaviorSubject, map } from "rxjs";
+import { ValidatorService } from "../../../../validator/validator.service";
 
 @Component({
   selector: 'app-create-letter',
   templateUrl: './create-letter.component.html',
   styleUrls: ['./create-letter.component.scss']
 })
-export class CreateLetterComponent implements OnInit {
+export class CreateLetterComponent {
   constructor(private h: HotToastService,
-              private letterService: LetterService) {
+              private letterService: LetterService,
+              private validatorService: ValidatorService) {
   }
 
   public form: FormGroup = new FormGroup({
     generateLabelRequest: this.getGenerateLabelFormGroup(),
     generateMailDescriptionRequest: this.getGenerateMailDescriptionFormGroup(),
     mailConfigurationRequest: this.getMailConfigFormGroup(),
-  })
+  });
 
   private generatedLettersSource = new BehaviorSubject<string>('');
   public generatedLetters$ = this.generatedLettersSource.asObservable();
 
-  ngOnInit(): void {
-  }
+  public generateLabelRequestGroup = this.form.get('generateLabelRequest') as FormGroup;
 
   public amountDropdown = [
     {value: '1', label: '1'},
@@ -66,7 +67,7 @@ export class CreateLetterComponent implements OnInit {
 
   private getGenerateLabelFormGroup(): FormGroup {
     return new FormGroup<{ name: FormControl<string | null>, description: FormControl<string | null> }>({
-      name: new FormControl<string | null>(null, [Validators.required]),
+      name: new FormControl<string | null>(null, [Validators.required], [this.validatorService.uniqueLabel()]),
       description: new FormControl<string | null>(null, [Validators.required]),
     });
   }
