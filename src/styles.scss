@@ -1,7 +1,30 @@
 @use 'node_modules/@ngneat/hot-toast/src/styles/styles.scss';
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$fe-diploma-primary: mat.define-palette(mat.$indigo-palette);
+$fe-diploma-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$fe-diploma-warn: mat.define-palette(mat.$red-palette);
+$fe-diploma-theme: mat.define-light-theme(
+    (
+      color: (
+        primary: $fe-diploma-primary,
+        accent: $fe-diploma-accent,
+        warn: $fe-diploma-warn,
+      ),
+    )
+);
+@include mat.all-component-themes($fe-diploma-theme);
 @import "styles/core/reset";
 
 @import "styles/shared/components/button";
 @import "styles/shared/components/link";
 
 @import "@ng-select/ng-select/themes/default.theme.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+p {
+  margin-bottom: 0 !important;
+}

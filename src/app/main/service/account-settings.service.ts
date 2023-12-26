@@ -7,13 +7,13 @@ import { ApiService } from "../../../service/api.service";
 })
 export class AccountSettingsService {
 
-  constructor(private apiSerive: ApiService) { }
+  constructor(private apiService: ApiService) { }
 
   public deleteAccount(): Observable<any> {
-    return this.apiSerive.delete('user/delete')
+    return this.apiService.delete('user/delete')
   }
 
   public changePassword(newPassword: string): Observable<any> {
-    return this.apiSerive.put('user/change-password', {newPassword})
+    return this.apiService.put('user/change-password', {newPassword})
   }
 }

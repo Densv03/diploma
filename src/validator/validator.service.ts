@@ -10,7 +10,7 @@ export class ValidatorService {
 
   constructor(private labelService: LabelService) { }
 
-  uniqueLabel(): AsyncValidatorFn {
+  public uniqueLabel(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<{ labelExist: boolean } | null> => {
       if (!control.value) {
         return of(null);
@@ -23,7 +23,7 @@ export class ValidatorService {
         }),
         catchError(() => {
           return of(null);
-        })
+        }),
       );
     };
   }

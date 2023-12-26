@@ -1,0 +1,15 @@
+.dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 40px;
+  }
+
+  button {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}

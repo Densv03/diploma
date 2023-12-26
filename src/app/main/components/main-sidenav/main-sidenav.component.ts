@@ -37,6 +37,10 @@ export class MainSidenavComponent implements OnInit {
       label: 'About project'
     },
     {
+      link: '/main/receivers',
+      label: 'Receivers'
+    },
+    {
       label: 'Logout',
       onclick: () => {
         this.authService.logout();

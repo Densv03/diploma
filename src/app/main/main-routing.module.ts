@@ -5,6 +5,7 @@ import { CreateLetterComponent } from "./components/create-letter/create-letter.
 import { LettersLogComponent } from "./components/labels-list/layout/letters-log.component";
 import { AccountSettingComponent } from "./components/account-setting/account-setting.component";
 import { AboutProjectComponent } from "./components/about-project/about-project.component";
+import { ReceiversListComponent } from "./components/receivers-list/receivers-list.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         path: 'about-project',
         component: AboutProjectComponent
       },
+      {
+        path: 'receivers',
+        component: ReceiversListComponent
+      }
     ],
   },
 ];

@@ -1,3 +1,5 @@
 <div *ngIf="label$ | async as label" class="label-details">
-  {{label | json}}
+  <div *ngFor="let template of label.templates" class="mb-3 label-details__template">
+    {{template.template}}
+  </div>
 </div>
