@@ -12,6 +12,9 @@ export class CreateGroupDialogComponent {
   }
 
   public createGroup(): void {
+    if (!this.groupName) {
+      return;
+    }
     this.dialogRef.close(this.groupName);
   }
 }

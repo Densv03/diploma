@@ -1,0 +1,24 @@
+<div class="edit-and-submit-dialog">
+  <form [formGroup]="templateFormGroup">
+    <textarea formControlName="template" class="edit-and-submit-dialog__textarea w-100" rows="15"></textarea>
+
+    <p>Select group of receivers or <a routerLink="/main/receivers" (click)="cancel()">create new group</a></p>
+    <ng-select [items]="receiversGroups$ | async"
+               class="mb-3"
+               bindLabel="groupName"
+               bindValue="groupName"
+               [searchable]="false"
+               placeholder="Select group of receivers"
+               formControlName="receiversGroup"></ng-select>
+    <p>Enter what person this letter will be sent from</p>
+    <input type="text"
+           formControlName="from"
+           placeholder="Enter what person this letter will be sent from"
+           class="w-100 mb-3">
+
+    <div class="edit-and-submit-dialog__buttons">
+      <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

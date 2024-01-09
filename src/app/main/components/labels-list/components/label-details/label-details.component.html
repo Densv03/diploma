@@ -1,5 +1,6 @@
 <div *ngIf="label$ | async as label" class="label-details">
-  <div *ngFor="let template of label.templates" class="mb-3 label-details__template">
+  <div *ngFor="let template of label.templates" class="mb-3 label-details__template" (click)="openEditAndSubmitDialog(template)">
     {{template.template}}
   </div>
+  <button class="app-button" (click)="sendMessage()">Send message</button>
 </div>

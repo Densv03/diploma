@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LetterService } from "../../service/letter.service";
 import { BehaviorSubject, map } from "rxjs";
 import { ValidatorService } from "../../../../validator/validator.service";
+import { ApiService } from "../../../../service/api.service";
 
 @Component({
   selector: 'app-create-letter',
@@ -13,7 +14,8 @@ import { ValidatorService } from "../../../../validator/validator.service";
 export class CreateLetterComponent {
   constructor(private h: HotToastService,
               private letterService: LetterService,
-              private validatorService: ValidatorService) {
+              private validatorService: ValidatorService,
+              private apiService: ApiService) {
   }
 
   public form: FormGroup = new FormGroup({
@@ -45,8 +47,6 @@ export class CreateLetterComponent {
     ]
 
   public createLetter(): void {
-    console.log(this.form);
-    console.log('create letter')
     if (this.form.invalid) {
       this.h.error('Form invalid');
       return;
@@ -60,8 +60,6 @@ export class CreateLetterComponent {
         error: 'Error generating letter'
       })).subscribe(res => {
       this.generatedLettersSource.next(res as any as string);
-      console.log(this.generatedLettersSource.value)
-      console.log(res)
     });
   }
 
