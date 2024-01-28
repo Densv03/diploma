@@ -2,55 +2,80 @@
   <form [formGroup]="form" (ngSubmit)="createLetter()">
     <div formGroupName="generateLabelRequest" class="d-flex flex-column">
       <div>
-        <p>Enter your label name</p>
-        <input type="text" formControlName="name" placeholder="Enter label name" class="w-100">
-      </div>
-      <div *ngIf="generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched">
-        Label already exists. Please choose other one
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter your label name</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Enter label name" class="w-100">
+          <mat-error *ngIf="generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched">
+            Label already exists. Please choose other one
+          </mat-error>
+        </mat-form-field>
       </div>
       <div>
-        <p>Enter your label description</p>
-        <input type="text" formControlName="description" placeholder="Enter label description" class="w-100">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter your label description</mat-label>
+          <input matInput type="text" formControlName="description" placeholder="Enter label description" class="w-100">
+        </mat-form-field>
       </div>
     </div>
     <div formGroupName="generateMailDescriptionRequest">
       <div>
-        <p>Enter title for your letter</p>
-        <input type="text" formControlName="title" placeholder="Enter letter title" class="w-100">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter title for your letter</mat-label>
+          <input type="text" matInput formControlName="title" placeholder="Enter letter title" class="w-100">
+        </mat-form-field>
       </div>
       <div>
-        <p>Enter your letter</p>
-        <textarea type="text" formControlName="body" placeholder="Enter letter text" class="w-100" rows="5"></textarea>
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter your letter</mat-label>
+          <textarea type="text" matInput formControlName="body" placeholder="Enter letter text" class="w-100" rows="5"></textarea>
+        </mat-form-field>
       </div>
     </div>
     <div formGroupName="mailConfigurationRequest">
       <div>
-        <p>Enter person from whose name letter will be written</p>
-        <input type="text" formControlName="from" placeholder="Enter person from whose name letter will be written"
-               class="w-100">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter person from whose name letter will be written</mat-label>
+          <input type="text" matInput formControlName="from" placeholder="Enter person from whose name letter will be written"
+                 class="w-100">
+        </mat-form-field>
       </div>
       <div>
-        <p>Enter style of your letter</p>
-        <ng-select [items]="styleDropdown"
-                   bindLabel="label"
-                   bindValue="value"
-                   [searchable]="false"
-                   placeholder="Enter letter style"
-                   formControlName="style"
-        ></ng-select>
+        <mat-form-field appearance="fill">
+          <mat-label>Введите стиль вашего письма</mat-label>
+          <mat-select formControlName="style" panelClass="my-dropdown-panel">
+            <ng-select
+              [items]="styleDropdown"
+              bindLabel="label"
+              bindValue="value"
+              [searchable]="false"
+              placeholder="Введите стиль письма"
+            ></ng-select>
+            <mat-option *ngFor="let style of styleDropdown" [value]="style.value">
+              {{ style.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div class="d-flex">
-        <p class="d-block" style="margin-right: 10px;">Use placeholders</p>
-        <input type="checkbox" formControlName="usingPlaceHolder">
+        <p class="position-label" style="margin-left: 10px;">Use placeholders</p>
+        <mat-checkbox formControlName="usingPlaceHolder" class="mat-checkbox--custom"></mat-checkbox>
       </div>
       <div>
-        <p>Enter amount of generated letters</p>
-        <ng-select [items]="amountDropdown"
-                   bindLabel="label"
-                   bindValue="value"
-                   [searchable]="false"
-                   placeholder="Enter amount of generated letters"
-                   formControlName="templateCount"></ng-select>
+        <mat-form-field appearance="fill">
+          <mat-label>Введите количество создаваемых писем</mat-label>
+          <mat-select formControlName="templateCount" panelClass="my-dropdown-panel">
+            <ng-select
+              [items]="amountDropdown"
+              bindLabel="label"
+              bindValue="value"
+              [searchable]="false"
+              placeholder="Введите количество создаваемых писем"
+            ></ng-select>
+            <mat-option *ngFor="let amount of amountDropdown" [value]="amount.value">
+              {{ amount.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div>
         <p>Enter amount of sentences that will be generated</p>
@@ -61,7 +86,7 @@
                max="20">
       </div>
     </div>
-    <button class="app-button">Generate letter</button>
+    <button mat-flat-button class="app-button">Generate letter</button>
   </form>
   <div>
     {{generatedLetters$ | async}}

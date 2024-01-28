@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HotToastService } from "@ngneat/hot-toast";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LetterService } from "../../service/letter.service";
@@ -43,8 +43,7 @@ export class CreateLetterComponent {
     {value: 'Literary', label: 'Literary'},
     {value: 'Journalistic', label: 'Journalistic'},
     {value: 'Conversational', label: 'Conversational'},
-
-    ]
+  ];
 
   public createLetter(): void {
     if (this.form.invalid) {

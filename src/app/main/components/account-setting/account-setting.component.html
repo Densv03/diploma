@@ -2,18 +2,20 @@
   <h2>Change password</h2>
   <form [formGroup]="accountSettingsFormGroup" (ngSubmit)="changePassword()">
     <div class="account-settings__control">
-      <label for="currentPassword">Current password</label>
-      <input type="password" id="currentPassword" formControlName="currentPassword" placeholder="Enter current password">
+      <mat-form-field class="example-full-width">
+        <mat-label for="currentPassword">Current password</mat-label>
+        <input type="password" id="currentPassword" matInput formControlName="currentPassword" placeholder="Enter current password">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label for="newPassword">New password</mat-label>
+        <input type="password" id="newPassword" matInput formControlName="newPassword" placeholder="Enter new password">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label for="repeatNewPassword">Repeat new password</mat-label>
+        <input type="password" id="repeatNewPassword" matInput formControlName="repeatNewPassword" placeholder="Repeat new password">
+      </mat-form-field>
     </div>
-    <div class="account-settings__control">
-      <label for="newPassword">New password</label>
-      <input type="password" id="newPassword" formControlName="newPassword" placeholder="Enter new password">
-    </div>
-    <div class="account-settings__control">
-      <label for="repeatNewPassword">Repeat new password</label>
-      <input type="password" id="repeatNewPassword" formControlName="repeatNewPassword" placeholder="Repeat new password">
-    </div>
-    <button class="app-button">Change password</button>
+    <button mat-flat-button class="app-button">Change password</button>
   </form>
-  <button (click)="deleteAccount()" class="app-button mt-3">Delete account</button>
+  <button mat-flat-button (click)="deleteAccount()" class="app-button mt-3">Delete account</button>
 </div>

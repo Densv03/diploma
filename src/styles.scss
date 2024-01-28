@@ -16,7 +16,10 @@ $fe-diploma-theme: mat.define-light-theme(
     )
 );
 @include mat.all-component-themes($fe-diploma-theme);
+
+
 @import "styles/core/reset";
+
 
 @import "styles/shared/components/button";
 @import "styles/shared/components/link";
@@ -28,3 +31,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 p {
   margin-bottom: 0 !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

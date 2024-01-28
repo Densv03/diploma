@@ -2,19 +2,30 @@
   <div class="header" style="display: flex;justify-content: space-between;">
     <div></div>
     <h2>Login</h2>
-    <button (click)="goToRegister()" class="app-button" type="button">Sign up</button>
+    <button mat-flat-button (click)="goToRegister()" class="app-button" type="button">Sign up</button>
   </div>
-  <div class="login-wrapper">
-    <p>E-mail</p>
-    <input type="text" placeholder="Enter login" class="w-100" formControlName="email">
-    <p *ngIf="formState['email'].touched && formState['email'].hasError('email') &&
-     !formState['email'].hasError('required')">Email is invalid</p>
-    <p *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</p>
-  </div>
-  <div class="password-wrapper mb-4">
-    <p>Password</p>
-    <input type="password" placeholder="Enter password" class="w-100" formControlName="password">
-    <p *ngIf="formState['password'].touched && formState['password'].hasError('required')">Password is required</p>
-  </div>
-  <button class="app-button">Login</button>
+  <mat-form-field class="example-full-width">
+    <mat-label>E-mail</mat-label>
+    <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">
+    <mat-error *ngIf="formState['email'].touched && formState['email'].hasError('email') &&
+     !formState['email'].hasError('required')">Email is invalid</mat-error>
+    <mat-error *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="password" placeholder="Enter password" class="w-100" matInput formControlName="password">
+    <mat-error *ngIf="formState['password'].touched && formState['password'].hasError('required')">Password is required</mat-error>
+  </mat-form-field>
+<!--  <div class="login-wrapper">-->
+<!--    <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">-->
+<!--    <p *ngIf="formState['email'].touched && formState['email'].hasError('email') &&-->
+<!--     !formState['email'].hasError('required')">Email is invalid</p>-->
+<!--    <p *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</p>-->
+<!--  </div>-->
+<!--  <div class="password-wrapper mb-4">-->
+<!--    <p>Password</p>-->
+<!--    <input type="password" placeholder="Enter password" class="w-100" formControlName="password">-->
+<!--    <p *ngIf="formState['password'].touched && formState['password'].hasError('required')">Password is required</p>-->
+<!--  </div>-->
+  <button mat-flat-button class="app-button">Login</button>
 </form>

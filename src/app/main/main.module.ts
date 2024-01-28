@@ -20,6 +20,8 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 
@@ -47,7 +49,10 @@ import { MatIconModule } from "@angular/material/icon";
     MatExpansionModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule
   ]
 })
 export class MainModule { }

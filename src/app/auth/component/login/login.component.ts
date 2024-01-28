@@ -4,11 +4,13 @@ import { AuthService } from "../../../../service/auth.service";
 import { Router } from "@angular/router";
 import {HotToastService} from "@ngneat/hot-toast";
 import {catchError, of} from "rxjs";
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   public loginForm = new FormGroup({
