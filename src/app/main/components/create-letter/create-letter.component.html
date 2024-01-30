@@ -2,7 +2,7 @@
   <form [formGroup]="form" (ngSubmit)="createLetter()">
     <div formGroupName="generateLabelRequest" class="d-flex flex-column">
       <div>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <mat-label>Enter your label name</mat-label>
           <input type="text" matInput formControlName="name" placeholder="Enter label name" class="w-100">
           <mat-error *ngIf="generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched">
@@ -11,7 +11,7 @@
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <mat-label>Enter your label description</mat-label>
           <input matInput type="text" formControlName="description" placeholder="Enter label description" class="w-100">
         </mat-form-field>
@@ -19,13 +19,13 @@
     </div>
     <div formGroupName="generateMailDescriptionRequest">
       <div>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <mat-label>Enter title for your letter</mat-label>
           <input type="text" matInput formControlName="title" placeholder="Enter letter title" class="w-100">
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <mat-label>Enter your letter</mat-label>
           <textarea type="text" matInput formControlName="body" placeholder="Enter letter text" class="w-100" rows="5"></textarea>
         </mat-form-field>
@@ -33,22 +33,22 @@
     </div>
     <div formGroupName="mailConfigurationRequest">
       <div>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="w-100">
           <mat-label>Enter person from whose name letter will be written</mat-label>
           <input type="text" matInput formControlName="from" placeholder="Enter person from whose name letter will be written"
                  class="w-100">
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Введите стиль вашего письма</mat-label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Select your letter style</mat-label>
           <mat-select formControlName="style" panelClass="my-dropdown-panel">
             <ng-select
               [items]="styleDropdown"
               bindLabel="label"
               bindValue="value"
               [searchable]="false"
-              placeholder="Введите стиль письма"
+              placeholder="Select your letter style"
             ></ng-select>
             <mat-option *ngFor="let style of styleDropdown" [value]="style.value">
               {{ style.label }}
@@ -61,15 +61,15 @@
         <mat-checkbox formControlName="usingPlaceHolder" class="mat-checkbox--custom"></mat-checkbox>
       </div>
       <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Введите количество создаваемых писем</mat-label>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Select amount of created letters</mat-label>
           <mat-select formControlName="templateCount" panelClass="my-dropdown-panel">
             <ng-select
               [items]="amountDropdown"
               bindLabel="label"
               bindValue="value"
               [searchable]="false"
-              placeholder="Введите количество создаваемых писем"
+              placeholder="Select amount of created letters"
             ></ng-select>
             <mat-option *ngFor="let amount of amountDropdown" [value]="amount.value">
               {{ amount.label }}

@@ -23,7 +23,6 @@ export class LabelDetailsComponent {
               private hotToastService: HotToastService) {
   }
 
-  public sendMessage(): void {}
 
   public openEditAndSubmitDialog(usedTemplate: Template): void {
     console.log(usedTemplate);
