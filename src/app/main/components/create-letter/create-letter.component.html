@@ -77,14 +77,10 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div>
-        <p>Enter amount of sentences that will be generated</p>
-        <input type="number"
-               formControlName="sentenceCount"
-               placeholder="Enter amount of sentences that will be generated"
-               min="1"
-               max="20">
-      </div>
+      <p>Enter amount of sentences that will be generated</p>
+      <mat-slider min="1" max="20" step="1" showTickMarks discrete [displayWith]="formatLabel">
+        <input formControlName="sentenceCount" matSliderThumb>
+      </mat-slider>
     </div>
     <button mat-flat-button class="app-button">Generate letter</button>
   </form>

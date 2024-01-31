@@ -1,5 +1,5 @@
 <div *ngIf="receiverGroups$ | async as receiverGroups" class="receivers-list">
-  <button class="app-button" (click)="openCreateGroupDialog()">Create group</button>
+  <button class="app-button" mat-flat-button (click)="openCreateGroupDialog()">Create group</button>
   <mat-accordion>
     <mat-expansion-panel *ngFor="let receiverGroup of receiverGroups"
                          [expanded]="expandedGroups.has(receiverGroup.groupName)"
@@ -26,7 +26,7 @@
           <input matInput [formControl]="emailFormControl" placeholder="Enter email">
         </mat-form-field>
 
-        <button mat-button (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
+        <button mat-flat-button (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
           Add
         </button>
       </div>

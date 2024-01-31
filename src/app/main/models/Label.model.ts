@@ -2,6 +2,6 @@ import { Template } from "./template.model";
 
 export interface Label {
   label: string;
-  createdAt: Date;
+  createdAt: string;
   templates: Template[];
 }

@@ -22,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSliderModule} from "@angular/material/slider";
 
 
 
@@ -52,7 +53,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSliderModule
   ]
 })
 export class MainModule { }

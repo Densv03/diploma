@@ -16,6 +16,7 @@ export class CreateLetterComponent {
               private letterService: LetterService,
               private validatorService: ValidatorService,
               private apiService: ApiService) {
+    this.form.get('mailConfigurationRequest')?.get('sentenceCount')?.valueChanges.subscribe(console.log)
   }
 
   public form: FormGroup = new FormGroup({
@@ -90,5 +91,11 @@ export class CreateLetterComponent {
       templateCount: new FormControl<number | null>(null),
       sentenceCount: new FormControl<number>(0),
     });
+  }
+  formatLabel(value: number): string {
+    if (value >= 1) {
+      return Math.round(value) + '';
+    }
+    return `${value}`;
   }
 }

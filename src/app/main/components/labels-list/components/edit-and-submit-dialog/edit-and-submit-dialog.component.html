@@ -10,11 +10,15 @@
                [searchable]="false"
                placeholder="Select group of receivers"
                formControlName="receiversGroup"></ng-select>
-    <p>Enter what person this letter will be sent from</p>
-    <input type="text"
-           formControlName="from"
-           placeholder="Enter what person this letter will be sent from"
-           class="w-100 mb-3">
+
+    <mat-form-field class="w-100">
+      <mat-label>Enter what person this letter will be sent from</mat-label>
+      <input type="text"
+             matInput
+             formControlName="from"
+             placeholder="Enter what person this letter will be sent from"
+             class="w-100 mb-3">
+    </mat-form-field>
 
     <div class="edit-and-submit-dialog__buttons">
       <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>

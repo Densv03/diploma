@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from "../../../service/api.service";
-import { Observable } from "rxjs";
+import {Observable, of} from "rxjs";
 import { Group } from "../models/group.model";
+import {RECEIVERS_MOCK} from "../mocks/RECEIVERS_MOCK";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class ReceiversService {
   }
 
   public getAllReceiverGroups(): Observable<Group[]> {
-    return this.apiService.get('groups/all');
+    // return this.apiService.get('groups/all');
+    return of(RECEIVERS_MOCK)
   }
 }
