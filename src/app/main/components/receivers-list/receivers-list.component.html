@@ -1,36 +1,38 @@
-<div *ngIf="receiverGroups$ | async as receiverGroups" class="receivers-list">
-  <button class="app-button" (click)="openCreateGroupDialog()">Create group</button>
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let receiverGroup of receiverGroups"
-                         [expanded]="expandedGroups.has(receiverGroup.groupName)"
-                         (opened)="panelOpened(receiverGroup.groupName)"
-                         (closed)="panelClosed(receiverGroup.groupName)">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ receiverGroup.groupName }}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <mat-action-list>
-        <div *ngFor="let emailReceiver of receiverGroup.emailReceiverResponses">
-          {{ emailReceiver.email }}
-          <button mat-icon-button (click)="removeEmail(receiverGroup.groupName, emailReceiver.email)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </mat-action-list>
-
-      <div class="add-email-form">
-        <mat-form-field appearance="fill">
-          <mat-label>Add email</mat-label>
-          <input matInput [formControl]="emailFormControl" placeholder="Enter email">
-        </mat-form-field>
-
-        <button mat-button (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
-          Add
-        </button>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-
-</div>
+@if (receiverGroups$ | async; as receiverGroups) {
+  <div class="receivers-list">
+    <button class="app-button" (click)="openCreateGroupDialog()">Create group</button>
+    <mat-accordion>
+      @for (receiverGroup of receiverGroups; track receiverGroup) {
+        <mat-expansion-panel
+          [expanded]="expandedGroups.has(receiverGroup.groupName)"
+          (opened)="panelOpened(receiverGroup.groupName)"
+          (closed)="panelClosed(receiverGroup.groupName)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ receiverGroup.groupName }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-list>
+            @for (emailReceiver of receiverGroup.emailReceiverResponses; track emailReceiver) {
+              <div>
+                {{ emailReceiver.email }}
+                <button mat-icon-button (click)="removeEmail(receiverGroup.groupName, emailReceiver.email)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            }
+          </mat-action-list>
+          <div class="add-email-form">
+            <mat-form-field appearance="fill">
+              <mat-label>Add email</mat-label>
+              <input matInput [formControl]="emailFormControl" placeholder="Enter email">
+            </mat-form-field>
+            <button mat-button (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
+              Add
+            </button>
+          </div>
+        </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </div>
+}

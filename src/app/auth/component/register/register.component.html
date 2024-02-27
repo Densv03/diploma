@@ -4,38 +4,48 @@
   <button mat-flat-button (click)="redirectToLogin()" class="app-button">Log in</button>
 </div>
 <form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
-      <mat-form-field class="example-full-width">
-        <mat-label>First name</mat-label>
-        <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="name">
-        <mat-error *ngIf="formState['name'].touched && formState['name'].hasError('required')">
-          First name is required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Last name</mat-label>
-        <input type="text" placeholder="Enter last name" class="w-100" matInput formControlName="lastName">
-        <mat-error *ngIf="formState['lastName'].touched && formState['lastName'].hasError('required')">
-          Last name is required
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>E-mail</mat-label>
-        <input type="text" placeholder="Enter email" class="w-100" matInput formControlName="email">
-        <mat-error
-          *ngIf="formState['email'].touched && formState['email'].hasError('required') &&
-        !formState['email'].hasError('email')">
-          E-mail is required
-        </mat-error>
-        <mat-error *ngIf="formState['email'].touched && formState['email'].hasError('email')">
-          E-mail is invalid
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
-        <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="password">
-        <mat-error *ngIf="formState['password'].touched && formState['password'].hasError('required')">
-          Password is required
-        </mat-error>
-      </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>First name</mat-label>
+    <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="name">
+    @if (formState['name'].touched && formState['name'].hasError('required')) {
+      <mat-error>
+        First name is required
+      </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Last name</mat-label>
+    <input type="text" placeholder="Enter last name" class="w-100" matInput formControlName="lastName">
+    @if (formState['lastName'].touched && formState['lastName'].hasError('required')) {
+      <mat-error>
+        Last name is required
+      </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>E-mail</mat-label>
+    <input type="text" placeholder="Enter email" class="w-100" matInput formControlName="email">
+    @if (formState['email'].touched && formState['email'].hasError('required') &&
+      !formState['email'].hasError('email')) {
+      <mat-error
+        >
+        E-mail is required
+      </mat-error>
+    }
+    @if (formState['email'].touched && formState['email'].hasError('email')) {
+      <mat-error>
+        E-mail is invalid
+      </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="password">
+    @if (formState['password'].touched && formState['password'].hasError('required')) {
+      <mat-error>
+        Password is required
+      </mat-error>
+    }
+  </mat-form-field>
   <button mat-flat-button class="app-button">Sign Up</button>
 </form>

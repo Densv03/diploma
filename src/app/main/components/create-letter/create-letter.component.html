@@ -5,9 +5,11 @@
         <mat-form-field class="w-100">
           <mat-label>Enter your label name</mat-label>
           <input type="text" matInput formControlName="name" placeholder="Enter label name" class="w-100">
-          <mat-error *ngIf="generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched">
-            Label already exists. Please choose other one
-          </mat-error>
+          @if (generateLabelRequestGroup.get('name')?.hasError('labelExist') && generateLabelRequestGroup.get('name')?.touched) {
+            <mat-error>
+              Label already exists. Please choose other one
+            </mat-error>
+          }
         </mat-form-field>
       </div>
       <div>
@@ -36,7 +38,7 @@
         <mat-form-field class="w-100">
           <mat-label>Enter person from whose name letter will be written</mat-label>
           <input type="text" matInput formControlName="from" placeholder="Enter person from whose name letter will be written"
-                 class="w-100">
+            class="w-100">
         </mat-form-field>
       </div>
       <div>
@@ -50,9 +52,11 @@
               [searchable]="false"
               placeholder="Select your letter style"
             ></ng-select>
-            <mat-option *ngFor="let style of styleDropdown" [value]="style.value">
-              {{ style.label }}
-            </mat-option>
+            @for (style of styleDropdown; track style) {
+              <mat-option [value]="style.value">
+                {{ style.label }}
+              </mat-option>
+            }
           </mat-select>
         </mat-form-field>
       </div>
@@ -71,19 +75,21 @@
               [searchable]="false"
               placeholder="Select amount of created letters"
             ></ng-select>
-            <mat-option *ngFor="let amount of amountDropdown" [value]="amount.value">
-              {{ amount.label }}
-            </mat-option>
+            @for (amount of amountDropdown; track amount) {
+              <mat-option [value]="amount.value">
+                {{ amount.label }}
+              </mat-option>
+            }
           </mat-select>
         </mat-form-field>
       </div>
       <div>
         <p>Enter amount of sentences that will be generated</p>
         <input type="number"
-               formControlName="sentenceCount"
-               placeholder="Enter amount of sentences that will be generated"
-               min="1"
-               max="20">
+          formControlName="sentenceCount"
+          placeholder="Enter amount of sentences that will be generated"
+          min="1"
+          max="20">
       </div>
     </div>
     <button mat-flat-button class="app-button">Generate letter</button>

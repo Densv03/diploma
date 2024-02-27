@@ -7,17 +7,23 @@
   <mat-form-field class="example-full-width">
     <mat-label>E-mail</mat-label>
     <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">
-    <mat-error *ngIf="formState['email'].touched && formState['email'].hasError('email') &&
-     !formState['email'].hasError('required')">Email is invalid</mat-error>
-    <mat-error *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</mat-error>
+    @if (formState['email'].touched && formState['email'].hasError('email') &&
+      !formState['email'].hasError('required')) {
+      <mat-error>Email is invalid</mat-error>
+    }
+    @if (formState['email'].touched && formState['email'].hasError('required')) {
+      <mat-error>Email is required</mat-error>
+    }
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <input type="password" placeholder="Enter password" class="w-100" matInput formControlName="password">
-    <mat-error *ngIf="formState['password'].touched && formState['password'].hasError('required')">Password is required</mat-error>
+    @if (formState['password'].touched && formState['password'].hasError('required')) {
+      <mat-error>Password is required</mat-error>
+    }
   </mat-form-field>
-<!--  <div class="login-wrapper">-->
-<!--    <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">-->
+  <!--  <div class="login-wrapper">-->
+  <!--    <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">-->
 <!--    <p *ngIf="formState['email'].touched && formState['email'].hasError('email') &&-->
 <!--     !formState['email'].hasError('required')">Email is invalid</p>-->
 <!--    <p *ngIf="formState['email'].touched && formState['email'].hasError('required')">Email is required</p>-->
