@@ -1,14 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   ISourceOptions,
-  MoveDirection,
-  OutMode,
 } from "@tsparticles/engine";
 import { NgParticlesService } from "@tsparticles/angular";
 import { loadSlim } from "@tsparticles/slim";
-
-
-
 
 
 @Component({
@@ -20,15 +15,24 @@ export class AuthComponent implements AfterViewInit, OnInit {
   id = "tsparticles";
   particlesOptions: ISourceOptions = {
     particles: {
-      number: { value: 10, density: { enable: true } },
-      color: { value: "#1b1e34" },
+      number: {
+        value: 5,
+        density: {
+          enable: true,
+        }
+      },
+      color: {
+        value: "#1b1e34"
+      },
       shape: {
         type: "polygon",
       },
       opacity: {
         value: 0.3,
         animation: {
-          mode: 'auto'
+          enable: true,
+          speed: 1,
+          sync: false
         }
       },
       size: {
@@ -40,44 +44,73 @@ export class AuthComponent implements AfterViewInit, OnInit {
         }
       },
       line_linked: {
-        enable: false,
-        distance: 200,
-        color: "#1b1e34",
-        opacity: 1,
-        width: 2
+        enable: false
       },
       move: {
         enable: true,
-        speed: 8,
+        speed: 2,
         direction: "none",
         random: false,
         straight: false,
-        outModes: "out",
+        outModes: {
+          default: "out",
+        },
+        attract: {
+          enable: false,
+          rotate: {
+            x: 600,
+            y: 1200
+          }
+        }
       }
     },
     interactivity: {
       detect_on: "canvas",
       events: {
-        onHover: { enable: false, mode: "grab" },
-        onClick: { enable: false, mode: "push" },
+        onHover: {
+          enable: true,
+          mode: "bubble" // Change to 'bubble' for a more interactive effect on hover
+        },
+        onClick: {
+          enable: true,
+          mode: "push"
+        }
       },
       modes: {
-        grab: { distance: 400, line_linked: { opacity: 1 } },
-        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-        repulse: { distance: 200, duration: 0.4 },
-        push: { particles_nb: 4 },
-        remove: { particles_nb: 2 }
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1
+          }
+        },
+        bubble: {
+          distance: 250, // Reduced distance for bubble effect to be more noticeable
+          size: 80, // Increased size for bubble effect
+          duration: 2,
+          opacity: 0.8,
+          speed: 3
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4
+        },
+        push: {
+          particles_nb: 4
+        },
+        remove: {
+          particles_nb: 2
+        }
       }
     },
-    retina_detect: true
-  };
+    retina_detect: true,
+  }
 
 
-  constructor(private readonly ngParticlesService: NgParticlesService) { }
+  constructor(private readonly ngParticlesService: NgParticlesService) {
+  }
 
 
   ngAfterViewInit() {
-
   }
 
   ngOnInit(): void {
