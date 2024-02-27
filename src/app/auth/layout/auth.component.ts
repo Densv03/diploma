@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
+  ISourceOptions,
   MoveDirection,
-  ClickMode,
-  HoverMode,
   OutMode,
 } from "@tsparticles/engine";
 import { NgParticlesService } from "@tsparticles/angular";
@@ -19,75 +18,60 @@ import { loadSlim } from "@tsparticles/slim";
 })
 export class AuthComponent implements AfterViewInit, OnInit {
   id = "tsparticles";
-  particlesOptions = {
-    background: {
-      color: {
-        value: "#0d47a1",
-      },
-    },
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          mode: ClickMode.push,
-        },
-        onHover: {
-          enable: true,
-          mode: HoverMode.repulse,
-        },
-        resize: true,
-      },
-      modes: {
-        push: {
-          quantity: 4,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-      },
-    },
+  particlesOptions: ISourceOptions = {
     particles: {
-      color: {
-        value: "#ffffff",
-      },
-      links: {
-        color: "#ffffff",
-        distance: 150,
-        enable: true,
-        opacity: 0.5,
-        width: 1,
-      },
-      move: {
-        direction: MoveDirection.none,
-        enable: true,
-        outModes: {
-          default: OutMode.bounce,
-        },
-        random: false,
-        speed: 6,
-        straight: false,
-      },
-      number: {
-        density: {
-          enable: true,
-          area: 800,
-        },
-        value: 80,
+      number: { value: 10, density: { enable: true } },
+      color: { value: "#1b1e34" },
+      shape: {
+        type: "polygon",
       },
       opacity: {
-        value: 0.5,
-      },
-      shape: {
-        type: "circle",
+        value: 0.3,
+        animation: {
+          mode: 'auto'
+        }
       },
       size: {
-        value: { min: 1, max: 5 },
+        value: 160,
+        animation: {
+          enable: true,
+          speed: 10,
+          sync: false
+        }
       },
+      line_linked: {
+        enable: false,
+        distance: 200,
+        color: "#1b1e34",
+        opacity: 1,
+        width: 2
+      },
+      move: {
+        enable: true,
+        speed: 8,
+        direction: "none",
+        random: false,
+        straight: false,
+        outModes: "out",
+      }
     },
-    detectRetina: true,
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onHover: { enable: false, mode: "grab" },
+        onClick: { enable: false, mode: "push" },
+      },
+      modes: {
+        grab: { distance: 400, line_linked: { opacity: 1 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 }
+      }
+    },
+    retina_detect: true
   };
+
 
   constructor(private readonly ngParticlesService: NgParticlesService) { }
 
