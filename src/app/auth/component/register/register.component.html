@@ -6,8 +6,8 @@
 <form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
       <mat-form-field class="example-full-width">
         <mat-label>First name</mat-label>
-        <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="firstName">
-        <mat-error *ngIf="formState['firstName'].touched && formState['firstName'].hasError('required')">
+        <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="name">
+        <mat-error *ngIf="formState['name'].touched && formState['name'].hasError('required')">
           First name is required
         </mat-error>
       </mat-form-field>

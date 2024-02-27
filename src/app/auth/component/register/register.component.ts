@@ -10,7 +10,7 @@ import {AuthService} from "../../../../service/auth.service";
 })
 export class RegisterComponent {
   public signupForm: FormGroup = new FormGroup({
-    firstName: new FormControl<string | null>(null, [Validators.required]),
+    name: new FormControl<string | null>(null, [Validators.required]),
     lastName: new FormControl<string | null>(null, [Validators.required]),
     email: new FormControl<string | null>(null, [Validators.required, Validators.email]),
     password: new FormControl<string | null>(null, [Validators.required]),

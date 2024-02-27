@@ -8,6 +8,7 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import { NgxParticlesModule } from "@tsparticles/angular";
 
 
 @NgModule({
@@ -16,13 +17,14 @@ import {MatInputModule} from "@angular/material/input";
     RegisterComponent,
     LoginComponent,
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatInputModule,
+        NgxParticlesModule
+    ]
 })
 export class AuthModule { }
