@@ -1,0 +1,50 @@
+<div class="promo">
+  <ul class="navigation">
+    @for (section of sections; track section.id) {
+      <li [class.active]="activeSection === section.id" (click)="section.onClick()">{{ section.label }}</li>
+    }
+  </ul>
+
+  <div class="section why-us" id="why-us">
+    <div class="reason">
+      <div class="title">Innovative Communication Solution</div>
+      <div class="subtitle">Our AI-driven email generation tool leads in innovative communication, enhancing both
+        productivity and creativity in crafting emails
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Emotionally Resonant Emails</div>
+      <div class="subtitle">Ensures every email is not just read, but felt, making your messages more impactful.</div>
+    </div>
+    <div class="reason">
+      <div class="title">Time-Saving</div>
+      <div class="subtitle">Significantly saves time by automating the email creation process, allowing for quick
+        generation of high-quality content
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Indispensable Tool</div>
+      <div class="subtitle">Becomes an essential tool for professionals and businesses aiming for efficient and
+        effective email communication
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Context and Purpose Understanding</div>
+      <div class="subtitle">Utilizes natural language processing and machine learning algorithms to grasp the context
+        and purpose of messages, generating similar emails that preserve the original content's essence while adding new
+        perspectives
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Advanced AI Technology</div>
+      <div class="subtitle">Harnesses advanced AI, offering a seamless experience in generating content that truly
+        resonates with the audience
+      </div>
+    </div>
+  </div>
+  <div class="section who-needs-this-product" id="who-needs-this-product">who-needs-this-product</div>
+  <div class="section our-values" id="our-values">our-values</div>
+  <div class="section our-mission" id="our-mission">our-mission</div>
+  <div class="section get-started" id="get-started">get started</div>
+  <ngx-particles id="tsparticles" [options]="PARTICLE_OPTIONS"></ngx-particles>
+</div>

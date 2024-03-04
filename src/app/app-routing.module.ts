@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/auth'
+    loadChildren: () => import('src/app/promo/promo.module').then(m => m.PromoModule)
   }
 ];
 

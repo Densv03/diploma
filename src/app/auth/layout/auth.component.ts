@@ -13,7 +13,7 @@ export class AuthComponent implements AfterViewInit, OnInit {
   id = "tsparticles";
   public PARTICLE_OPTIONS = PARTICLE_OPTIONS;
 
-  constructor(private readonly ngParticlesService: NgParticlesService) {
+  constructor(private ngParticlesService: NgParticlesService) {
   }
 
 

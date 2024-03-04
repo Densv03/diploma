@@ -1,6 +1,6 @@
 import { ISourceOptions } from "@tsparticles/engine";
 
-export const PARTICLE_OPTIONS: ISourceOptions = {
+export const PARTICLE_OPTIONS_NO_CLICK: ISourceOptions = {
   particles: {
     number: {
       value: 5,
@@ -58,10 +58,6 @@ export const PARTICLE_OPTIONS: ISourceOptions = {
         enable: true,
         mode: "bubble" // Change to 'bubble' for a more interactive effect on hover
       },
-      onClick: {
-        enable: true,
-        mode: "push"
-      }
     },
     modes: {
       grab: {
