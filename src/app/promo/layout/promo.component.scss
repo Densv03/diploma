@@ -61,7 +61,10 @@
     height: 100vh;
     padding: 130px 30px 30px 30px;
 
-    &.why-us {
+    &.why-us,
+    &.who-needs-this-product,
+    &.our-values,
+    &.our-mission {
       background: linear-gradient(to bottom, #FF573380, #FFC30080);
       display: flex;
       flex-direction: column;
@@ -70,11 +73,43 @@
       .reason {
         display: flex;
         align-items: center;
-        background-color: #ffffff50;
+        background-color: #ffffff70;
         border-radius: 15px;
         padding: 20px 10px;
         line-height: 30px;
+        position: relative;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        will-change: transform, box-shadow;
 
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 0;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.8);
+          transition: width 0.3s ease, left 0.3s ease;
+          will-change: width, left;
+          z-index: 1;
+          border-radius: 15px;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+          &::after {
+            left: 0;
+            width: 100%;
+          }
+        }
+
+        .title,
+        .subtitle {
+          position: relative;
+          z-index: 2;
+        }
 
         .title {
           width: 30%;
