@@ -1,7 +1,9 @@
 <div class="sidenav">
   <ul>
-     <li *ngFor="let sidenavItem of sidenavItems" class="mb-1">
-      <a [routerLink]="sidenavItem.link" (click)="sidenavItem?.onclick ? sidenavItem.onclick!() : null" routerLinkActive="sidenav-option--active" class="app-link" style="cursor:pointer;">{{sidenavItem.label}}</a>
-    </li>
+    @for (sidenavItem of sidenavItems; track sidenavItem) {
+      <li class="mb-1">
+        <a [routerLink]="sidenavItem.link" (click)="sidenavItem?.onclick ? sidenavItem.onclick!() : null" routerLinkActive="sidenav-option--active" class="app-link" style="cursor:pointer;">{{sidenavItem.label}}</a>
+      </li>
+    }
   </ul>
 </div>

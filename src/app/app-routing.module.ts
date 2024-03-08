@@ -9,13 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     loadChildren: () => import('src/app/main/main.module').then(m => m.MainModule)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/auth'
+    loadChildren: () => import('src/app/promo/promo.module').then(m => m.PromoModule)
   }
 ];
 

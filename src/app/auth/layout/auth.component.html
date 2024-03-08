@@ -1,6 +1,11 @@
-<div class="wrapper">
-  <div class="content">
-    <router-outlet></router-outlet>
+<div id="particles-js">
+  <div class="wrapper">
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
+
 </div>
-<div class="app-button">HUI</div>
+
+
+<ngx-particles [id]="id" [options]="PARTICLE_OPTIONS"></ngx-particles>

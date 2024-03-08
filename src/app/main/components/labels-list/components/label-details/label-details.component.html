@@ -1,5 +1,9 @@
-<div *ngIf="label$ | async as label" class="label-details">
-  <div *ngFor="let template of label.templates" class="mb-3 label-details__template" (click)="openEditAndSubmitDialog(template)">
-    {{template.template}}
+@if (label$ | async; as label) {
+  <div class="label-details">
+    @for (template of label.templates; track template) {
+      <div class="mb-3 label-details__template" (click)="openEditAndSubmitDialog(template)">
+        {{template.template}}
+      </div>
+    }
   </div>
-</div>
+}

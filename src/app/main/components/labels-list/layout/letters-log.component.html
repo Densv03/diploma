@@ -1,5 +1,9 @@
-<div *ngIf="labels$ | async as labels" class="letter-log">
-  <div *ngFor="let label of labels" class="app-button letter-log__button" [routerLink]="label.label">
-    {{label.label}}
+@if (labels$ | async; as labels) {
+  <div class="letter-log">
+    @for (label of labels; track label) {
+      <div class="app-button letter-log__button" [routerLink]="label.label">
+        {{label.label}}
+      </div>
+    }
   </div>
-</div>
+}

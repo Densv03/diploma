@@ -1,17 +1,20 @@
-.wrapper {
-  background-color: #AFEEEE;
+#particles-js {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  background: linear-gradient(0deg, rgba(253,187,45,0.38699229691876746) 0%, rgba(87,75,255,0.4822303921568627) 100%);
+}
+
+.wrapper {
+  z-index: 10;
 }
 
 .content {
   border: 2px solid #000;
-  background-color: #FFC0CB90;
   border-radius: 10px;
-  min-width: 500px;
+  min-width: 550px;
   min-height: 300px;
-  padding: 20px 10px
+  padding: 20px
 }
