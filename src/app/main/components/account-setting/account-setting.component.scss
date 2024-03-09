@@ -1,7 +1,9 @@
 .account-settings {
   height: 100%;
   padding: 20px 30px;
-  background-color: #AFEEEE;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px 0 0 50px;
+  box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
 
   &__control {
     display: flex;
