@@ -2,6 +2,38 @@ section {
   display: table;
 }
 
+.wrapper-login {
+  display: flex;
+  flex-direction: column;
+  padding: 0 120px;
+}
+
+.title {
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.wrapper-signUp {
+  display: flex;
+  justify-content: center;
+}
+
+.a-signUp {
+  color: rgba(255, 159, 105, 1);
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: 7px;
+}
+
+.txt-signUp {
+  color: rgba(142, 142, 142, 1);
+  font-size: 16px;
+  line-height: 22px;
+  margin-right: 7px;
+}
+
 .example-label {
   display: table-cell;
   font-size: 14px;

@@ -4,17 +4,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, rgba(253,187,45,0.38699229691876746) 0%, rgba(87,75,255,0.4822303921568627) 100%);
+  background-color: rgba(252, 252, 252, 1);
+  //background: linear-gradient(0deg, rgba(253,187,45,0.38699229691876746) 0%, rgba(87,75,255,0.4822303921568627) 100%);
 }
 
 .wrapper {
   z-index: 10;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
 }
 
 .content {
-  border: 2px solid #000;
-  border-radius: 10px;
-  min-width: 550px;
-  min-height: 300px;
+  box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
+  border-radius: 20px;
+  min-width: 783px;
+  min-height: 430px;
   padding: 20px
 }

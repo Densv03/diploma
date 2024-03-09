@@ -9,10 +9,10 @@ export const PARTICLE_OPTIONS_NO_CLICK: ISourceOptions = {
       }
     },
     color: {
-      value: "#1b1e34"
+      value: "#FFF"
     },
     shape: {
-      type: "polygon",
+      type: "circle",
     },
     opacity: {
       value: 0.3,

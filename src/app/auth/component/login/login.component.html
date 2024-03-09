@@ -1,9 +1,5 @@
-<form class="d-flex justify-content-around flex-column" [formGroup]="loginForm" (ngSubmit)="login()">
-  <div class="header" style="display: flex;justify-content: space-between;">
-    <div></div>
-    <h2>Login</h2>
-    <button mat-flat-button (click)="goToRegister()" class="app-button" type="button">Sign up</button>
-  </div>
+<form class="wrapper-login" [formGroup]="loginForm" (ngSubmit)="login()">
+  <h2 class="title">Login</h2>
   <mat-form-field class="example-full-width">
     <mat-label>E-mail</mat-label>
     <input type="text" placeholder="Enter login" class="w-100" matInput formControlName="email">
@@ -22,5 +18,9 @@
       <mat-error>Password is required</mat-error>
     }
   </mat-form-field>
-  <button mat-flat-button class="app-button">Login</button>
+  <button mat-flat-button class="app-button">Log In</button>
+  <div class="wrapper-signUp">
+    <p class="txt-signUp">New account?</p>
+    <a (click)="goToRegister()" class="a-signUp" type="button">Sign up</a>
+  </div>
 </form>

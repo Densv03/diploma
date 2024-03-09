@@ -1,9 +1,14 @@
 .sidenav {
-  background-color: #000; height: 100%;
+  background-color: red; height: 100%;
   padding: 20px 30px;
+  border-radius: 0 50px 50px 0;
 }
 .sidenav-option {
   &--active {
     border-bottom: 1px solid #fff;
   }
+}
+
+.mt-30 {
+  margin-top: 30px;
 }

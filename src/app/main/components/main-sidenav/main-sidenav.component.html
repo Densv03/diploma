@@ -1,8 +1,8 @@
 <div class="sidenav">
   <ul>
     @for (sidenavItem of sidenavItems; track sidenavItem) {
-      <li class="mb-1">
-        <a [routerLink]="sidenavItem.link" (click)="sidenavItem?.onclick ? sidenavItem.onclick!() : null" routerLinkActive="sidenav-option--active" class="app-link" style="cursor:pointer;">{{sidenavItem.label}}</a>
+      <li class="mt-30">
+        <a [routerLink]="sidenavItem.link" (click)="sidenavItem?.onclick ? sidenavItem.onclick!() : null" routerLinkActive="sidenav-option--active" class="app-link" style="cursor:pointer; color: rgba(142, 142, 142, 1);">{{sidenavItem.label}}</a>
       </li>
     }
   </ul>
