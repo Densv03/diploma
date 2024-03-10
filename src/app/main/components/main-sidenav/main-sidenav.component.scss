@@ -5,12 +5,32 @@
   box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
   height: 100%;
 }
+
+.sidenav-link {
+  color: #8E8E8E;
+  font-size: 18px;
+}
+
 .sidenav-option {
   &--active {
     border-bottom: 1px solid #fff;
+    color: #3498db;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 24px;
+      background-color: #6993FF;
+      border-radius: 2px;
+      left: -14px;
+      top: -1px;
+    }
   }
 }
 
 .mt-30 {
   margin-top: 30px;
 }
+

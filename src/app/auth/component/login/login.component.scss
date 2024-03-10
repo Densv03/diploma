@@ -25,6 +25,18 @@ section {
   font-size: 18px;
   line-height: 22px;
   margin-left: 7px;
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 61px;
+    height: 1.5px;
+    background-color: #FF9F69;
+    left: 0;
+    top: 20px;
+  }
 }
 
 .txt-signUp {

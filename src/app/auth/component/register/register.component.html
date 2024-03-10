@@ -1,9 +1,5 @@
-<div class="d-flex justify-content-between">
-  <div></div>
+<form class="wrapper-register" [formGroup]="signupForm" (ngSubmit)="signup()">
   <h2>Sign up</h2>
-  <button mat-flat-button (click)="redirectToLogin()" class="app-button">Log in</button>
-</div>
-<form class="d-flex justify-content-around flex-column" [formGroup]="signupForm" (ngSubmit)="signup()">
   <mat-form-field class="example-full-width">
     <mat-label>First name</mat-label>
     <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="name">
@@ -48,4 +44,8 @@
     }
   </mat-form-field>
   <button mat-flat-button class="app-button">Sign Up</button>
+  <div class="wrapper-logIn">
+    <p class="txt-logIn">Already have account?</p>
+    <a (click)="redirectToLogin()" class="a-logIn" type="button">Log In</a>
+  </div>
 </form>

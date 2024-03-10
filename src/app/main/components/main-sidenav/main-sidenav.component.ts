@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import { AuthService } from "../../../../service/auth.service";
 import { Router } from "@angular/router";
 
@@ -18,6 +18,10 @@ export class MainSidenavComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router) {
   }
+
+
+
+
 
   private readonly SIDENAV_ITEMS: SidenavItem[] = [
     {
@@ -50,6 +54,7 @@ export class MainSidenavComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+
   }
 
   public get sidenavItems(): SidenavItem[] {

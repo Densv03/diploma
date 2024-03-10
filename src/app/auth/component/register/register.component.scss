@@ -1,3 +1,40 @@
+.wrapper-register {
+  display: flex;
+  flex-direction: column;
+  padding: 0 120px;
+}
+
+.wrapper-logIn {
+  display: flex;
+  justify-content: center;
+}
+
+.a-logIn {
+  color: rgba(255, 159, 105, 1);
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: 7px;
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 51px;
+    height: 1.5px;
+    background-color: #FF9F69;
+    left: 0;
+    top: 20px;
+  }
+}
+
+.txt-logIn {
+  color: rgba(142, 142, 142, 1);
+  font-size: 16px;
+  line-height: 22px;
+  margin-right: 7px;
+}
+
 ::ng-deep {
   .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: transparent !important;
