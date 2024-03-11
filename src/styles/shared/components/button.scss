@@ -1,6 +1,12 @@
 .app-button {
-  padding: 10px 20px;
-  border: 1px solid #000 !important;
-  cursor: pointer;
-  background-color: transparent !important;
+  width: 100% !important;
+  height: 56px !important;
+  border-radius: 15px !important;
+  cursor: pointer !important;
+  background-color: #6993FF !important;
+  color: white !important;
+
+  &__red {
+    background-color: #FF6969 !important;
+  }
 }

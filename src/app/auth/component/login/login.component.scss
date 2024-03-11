@@ -13,6 +13,7 @@ section {
   color: rgba(0, 0, 0, 1);
   font-size: 24px;
   line-height: 30px;
+  margin-bottom: 60px;
 }
 
 .wrapper-signUp {
@@ -74,8 +75,6 @@ section {
   width: 120px;
 }
 
-::ng-deep {
-  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-    background-color: transparent !important;
-  }
+.mb-35 {
+  margin-bottom: 35px;
 }

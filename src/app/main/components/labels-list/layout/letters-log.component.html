@@ -1,7 +1,7 @@
 @if (labels$ | async; as labels) {
   <div class="letter-log">
     @for (label of labels; track label) {
-      <div class="app-button letter-log__button" [routerLink]="label.label">
+      <div class="letter-log__button" [routerLink]="label.label">
         {{label.label}}
       </div>
     }

@@ -1,5 +1,5 @@
 <div class="account-settings">
-  <h2>Change password</h2>
+  <h2 class="title">Change password</h2>
   <form [formGroup]="accountSettingsFormGroup" (ngSubmit)="changePassword()">
     <div class="account-settings__control">
       <mat-form-field class="example-full-width">
@@ -17,5 +17,5 @@
     </div>
     <button mat-flat-button class="app-button">Change password</button>
   </form>
-  <button mat-flat-button (click)="deleteAccount()" class="app-button mt-3">Delete account</button>
+  <button mat-flat-button (click)="deleteAccount()" class="app-button app-button__red mt-3">Delete account</button>
 </div>

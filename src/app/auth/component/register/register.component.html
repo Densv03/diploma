@@ -1,5 +1,5 @@
 <form class="wrapper-register" [formGroup]="signupForm" (ngSubmit)="signup()">
-  <h2>Sign up</h2>
+  <h2 class="title">Sign up</h2>
   <mat-form-field class="example-full-width">
     <mat-label>First name</mat-label>
     <input type="text" placeholder="Enter first name" class="w-100" matInput formControlName="name">
@@ -43,7 +43,7 @@
       </mat-error>
     }
   </mat-form-field>
-  <button mat-flat-button class="app-button">Sign Up</button>
+  <button mat-flat-button class="app-button mb-30">Sign Up</button>
   <div class="wrapper-logIn">
     <p class="txt-logIn">Already have account?</p>
     <a (click)="redirectToLogin()" class="a-logIn" type="button">Log In</a>

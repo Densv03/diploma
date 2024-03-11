@@ -4,6 +4,10 @@
   padding: 0 120px;
 }
 
+.title {
+  text-align: center;
+}
+
 .wrapper-logIn {
   display: flex;
   justify-content: center;
@@ -39,4 +43,8 @@
   .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: transparent !important;
   }
+}
+
+.mb-30 {
+  margin-bottom: 30px;
 }
