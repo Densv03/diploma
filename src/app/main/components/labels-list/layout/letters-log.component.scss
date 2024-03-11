@@ -1,13 +1,14 @@
 .letter-log {
   width: 100%;
-  height: 100%;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 50px 0 0 50px;
-  box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
+  min-height: calc(100vh - 28px);
+  background: #FCFCFC;
+
 
   &__button {
-    background-color: #eee;
-    margin-bottom: 10px;
+    padding: 47px 50px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
+    margin-bottom: 25px;
   }
 }

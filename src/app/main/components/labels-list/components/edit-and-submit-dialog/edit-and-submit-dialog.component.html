@@ -1,8 +1,8 @@
 <div class="edit-and-submit-dialog">
   <form [formGroup]="templateFormGroup">
-    <textarea formControlName="template" class="edit-and-submit-dialog__textarea w-100" rows="15"></textarea>
+    <textarea formControlName="template" class="edit-and-submit-dialog__textarea w-100" rows="15" readonly></textarea>
 
-    <p>Select group of receivers or <a routerLink="/main/receivers" (click)="cancel()">create new group</a></p>
+    <p class="edit-and-submit-dialog__txt">Select group of receivers or <a routerLink="/main/receivers" class="edit-and-submit-dialog__link" (click)="cancel()">create new group</a></p>
     <ng-select [items]="receiversGroups$ | async"
                class="mb-3"
                bindLabel="groupName"
@@ -21,8 +21,9 @@
     </mat-form-field>
 
     <div class="edit-and-submit-dialog__buttons">
-      <button type="button" class="btn btn-primary" (click)="submit()">Submit</button>
-      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+      <button type="button" mat-flat-button class="app-button" (click)="submit()">Submit</button>
+      <div class="w-24"></div>
+      <button type="button" mat-flat-button class="app-button app-button__red" (click)="cancel()">Cancel</button>
     </div>
   </form>
 </div>

@@ -1,7 +1,33 @@
 .receivers-list {
-  padding: 10px 20px;
+  padding: 55px 100px;
   background-color: rgba(255, 255, 255, 1);
-  height: 100%;
-  border-radius: 50px 0 0 50px;
+  width: 836px;
+  max-height: 100%;
+  border-radius: 50px;
   box-shadow: 0 4px 28.8px 0 rgba(0, 0, 0, 0.11);
+}
+.receivers-email {
+  display: flex;
+  &__txt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background-color: #FCFCFC;
+    border-radius: 12px;
+    height: 44px;
+
+    &:hover {
+      background-color: #FF9F69;
+    }
+  }
+
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.w-100 {
+  width: 100%;
 }

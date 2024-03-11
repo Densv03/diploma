@@ -1,6 +1,5 @@
 @if (receiverGroups$ | async; as receiverGroups) {
   <div class="receivers-list">
-    <button class="app-button" (click)="openCreateGroupDialog()">Create group</button>
     <mat-accordion>
       @for (receiverGroup of receiverGroups; track receiverGroup) {
         <mat-expansion-panel
@@ -14,8 +13,8 @@
           </mat-expansion-panel-header>
           <mat-action-list>
             @for (emailReceiver of receiverGroup.emailReceiverResponses; track emailReceiver) {
-              <div>
-                {{ emailReceiver.email }}
+              <div class="receivers-email">
+                <div class="receivers-email__txt">{{ emailReceiver.email }}</div>
                 <button mat-icon-button (click)="removeEmail(receiverGroup.groupName, emailReceiver.email)">
                   <mat-icon>delete</mat-icon>
                 </button>
@@ -23,16 +22,17 @@
             }
           </mat-action-list>
           <div class="add-email-form">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" class="w-100">
               <mat-label>Add email</mat-label>
               <input matInput [formControl]="emailFormControl" placeholder="Enter email">
             </mat-form-field>
-            <button mat-button (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
+            <button mat-button class="app-button" (click)="addEmail(receiverGroup.groupName, emailFormControl.value)">
               Add
             </button>
           </div>
         </mat-expansion-panel>
       }
     </mat-accordion>
+    <button class="app-button app-button__white mt-20" (click)="openCreateGroupDialog()">Create group</button>
   </div>
 }

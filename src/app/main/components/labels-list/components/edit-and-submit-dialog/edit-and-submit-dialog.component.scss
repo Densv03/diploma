@@ -1,3 +1,27 @@
 .edit-and-submit-dialog {
   padding: 20px;
+  border-radius: 50px;
+
+  &__textarea {
+    border: none;
+    margin-bottom: 15px;
+  }
+
+  &__txt {
+    margin-bottom: 10px !important;
+    font-size: 16px;
+    color: #8E8E8E;
+  }
+
+  &__link {
+    color: #6993FF;
+  }
+
+  &__buttons {
+    display: flex;
+  }
+}
+
+.w-24 {
+  width: 24px;
 }
