@@ -3,9 +3,9 @@
     @for (section of sections; track section.id) {
       <li [class.active]="activeSection === section.id" (click)="section.onClick()">{{ section.label }}</li>
     }
-    <div>
-      <button class="app-button app-button__fluid app-button__blue">Log In</button>
-      <button class="app-button app-button__fluid app-button__white">Sign Up</button>
+    <div class="navigation__actions">
+      <button class="app-button app-button__fluid app-button__blue navigation__actions__btn" (click)="redirectTo('/auth/login')">Log In</button>
+      <button class="app-button app-button__fluid app-button__white navigation__actions__btn" (click)="redirectTo('/auth')">Sign Up</button>
     </div>
   </ul>
 

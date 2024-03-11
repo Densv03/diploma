@@ -3,6 +3,7 @@ import { NgParticlesService, NgxParticlesModule } from "@tsparticles/angular";
 import { loadSlim } from "@tsparticles/slim";
 import { PARTICLE_OPTIONS_NO_CLICK } from "../../shared/PARTICLE_OPTIONS_NO_CLICK";
 import { fromEvent } from "rxjs";
+import { Router } from "@angular/router";
 
 interface Section {
   id: string;
@@ -20,7 +21,8 @@ interface Section {
   styleUrl: './promo.component.scss'
 })
 export class PromoComponent implements OnInit, AfterViewInit {
-  private ngParticlesService = inject(NgParticlesService)
+  private ngParticlesService = inject(NgParticlesService);
+  private router = inject(Router);
 
   public readonly PARTICLE_OPTIONS = PARTICLE_OPTIONS_NO_CLICK;
   public sections: Section[] = this.getSections();
@@ -36,11 +38,11 @@ export class PromoComponent implements OnInit, AfterViewInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize() {
+  public onResize() {
     this.updateSectionOffsets();
   }
 
-  initWindowScrollHandle() {
+  public initWindowScrollHandle() {
     let options = {
       root: null,
       rootMargin: '0px',
@@ -60,14 +62,16 @@ export class PromoComponent implements OnInit, AfterViewInit {
       observer.observe(section);
     });
   }
-  scrollToSection(sectionId: string) {
-    console.log(sectionId)
+  public scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
+  public redirectTo(link: string) {
+    this.router.navigate([link]);
+  }
 
   private initParticles(): void {
     this.ngParticlesService.init(async (engine) => {
