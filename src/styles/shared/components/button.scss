@@ -16,4 +16,18 @@
     color: #6993FF !important;
     border: 2px solid #6993FF !important;
   }
+
+  &__fluid {
+    width: auto !important;
+  }
+
+  &__blue {
+    height: 46px !important;
+    background-color: #6993FF !important;
+  }
+
+  &__outline-blue {
+    height: 46px !important;
+    background-color: #6993FF !important;
+  }
 }

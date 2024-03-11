@@ -3,6 +3,10 @@
     @for (section of sections; track section.id) {
       <li [class.active]="activeSection === section.id" (click)="section.onClick()">{{ section.label }}</li>
     }
+    <div>
+      <button class="app-button app-button__fluid app-button__blue">Log In</button>
+      <button class="app-button app-button__fluid app-button__white">Sign Up</button>
+    </div>
   </ul>
 
   <div class="section why-us" id="why-us">
