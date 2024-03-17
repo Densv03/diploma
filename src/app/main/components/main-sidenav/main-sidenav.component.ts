@@ -36,10 +36,10 @@ export class MainSidenavComponent implements OnInit {
       link: '/main/account-settings',
       label: 'Account settings'
     },
-    {
-      link: '/main/about-project',
-      label: 'About project'
-    },
+    // {
+    //   link: '/main/about-project',
+    //   label: 'About project'
+    // },
     {
       link: '/main/receivers',
       label: 'Receivers'
