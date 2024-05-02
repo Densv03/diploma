@@ -4,8 +4,12 @@
       <li [class.active]="activeSection === section.id" (click)="section.onClick()">{{ section.label }}</li>
     }
     <div class="navigation__actions">
-      <button class="app-button app-button__fluid app-button__blue navigation__actions__btn" (click)="redirectTo('/auth/login')">Log In</button>
-      <button class="app-button app-button__fluid app-button__white navigation__actions__btn" (click)="redirectTo('/auth')">Sign Up</button>
+      <button class="app-button app-button__fluid app-button__blue navigation__actions__btn"
+              (click)="redirectTo('/auth/login')">Log In
+      </button>
+      <button class="app-button app-button__fluid app-button__white navigation__actions__btn"
+              (click)="redirectTo('/auth')">Sign Up
+      </button>
     </div>
   </ul>
 
@@ -49,30 +53,156 @@
   <div class="section who-needs-this-product" id="who-needs-this-product">
     <div class="reason">
       <div class="title">Marketing Teams</div>
-      <div class="subtitle">Crafting personalized, engaging emails for campaigns can be time-consuming. Our tool allows teams to quickly generate variations, ensuring content freshness and A/B testing efficiency. It's also ideal for creating seasonal promotions and targeted offers that need to be customized for different customer segments. A/B testing efficiency.
+      <div class="subtitle">Crafting personalized, engaging emails for campaigns can be time-consuming. Our tool allows
+        teams to quickly generate variations, ensuring content freshness and A/B testing efficiency. It's also ideal for
+        creating seasonal promotions and targeted offers that need to be customized for different customer segments. A/B
+        testing efficiency.
       </div>
     </div>
     <div class="reason">
       <div class="title">Customer Support Representatives</div>
-      <div class="subtitle">Responding to customer inquiries with prompt, thoughtful, and personalized emails is key to customer satisfaction. Our AI helps generate responses that are both efficient and tailored to individual queries, providing a base for high-quality replies that can be fine-tuned for added personal touch.
+      <div class="subtitle">Responding to customer inquiries with prompt, thoughtful, and personalized emails is key to
+        customer satisfaction. Our AI helps generate responses that are both efficient and tailored to individual
+        queries, providing a base for high-quality replies that can be fine-tuned for added personal touch.
       </div>
     </div>
     <div class="reason">
       <div class="title">Content Creators and Bloggers</div>
-      <div class="subtitle">For those who engage with their audience via email newsletters, our product can help generate creative content that keeps readers engaged and subscribed. It aids in overcoming writer's block by suggesting topics and content outlines that resonate with readers' interests.
+      <div class="subtitle">For those who engage with their audience via email newsletters, our product can help
+        generate creative content that keeps readers engaged and subscribed. It aids in overcoming writer's block by
+        suggesting topics and content outlines that resonate with readers' interests.
       </div>
     </div>
     <div class="reason">
       <div class="title">Business Leaders and Entrepreneurs</div>
-      <div class="subtitle">Time is a critical resource. Our tool helps streamline email communication, ensuring that messages remain professional, on-brand, and impactful, without the need for extensive time investment. It also aids in networking by crafting follow-ups and outreach emails that are likely to receive a response.</div>
+      <div class="subtitle">Time is a critical resource. Our tool helps streamline email communication, ensuring that
+        messages remain professional, on-brand, and impactful, without the need for extensive time investment. It also
+        aids in networking by crafting follow-ups and outreach emails that are likely to receive a response.
+      </div>
     </div>
     <div class="reason">
       <div class="title">Human Resources &nbsp; Professionals</div>
-      <div class="subtitle">For HR teams, communication with potential candidates and existing staff is frequent and varied. From interview invitations to company updates, our tool ensures that each email is tailored to its purpose and audience.</div>
+      <div class="subtitle">For HR teams, communication with potential candidates and existing staff is frequent and
+        varied. From interview invitations to company updates, our tool ensures that each email is tailored to its
+        purpose and audience.
+      </div>
     </div>
   </div>
-  <div class="section our-values" id="our-values">our-values</div>
-  <div class="section our-mission" id="our-mission">our-mission</div>
-  <div class="section get-started" id="get-started">get started</div>
+  <div class="section our-values" id="our-values">
+    <div class="reason">
+      <div class="title">Innovation</div>
+      <div class="subtitle">We are committed to pushing the boundaries of what is possible with AI technology, ensuring
+        that our product remains at the forefront of email generation innovation.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Quality</div>
+      <div class="subtitle">We prioritize quality in every aspect of our product, from the accuracy of generated emails
+        to the user experience of our platform. Our goal is to provide a seamless, high-quality service that meets the
+        needs of our users.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Efficiency</div>
+      <div class="subtitle">We understand the value of time and aim to make the email generation process as efficient as
+        possible. Our tool is designed to save users time while ensuring that the content they create is of the highest
+        quality.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Empathy</div>
+      <div class="subtitle">We recognize the importance of empathy in communication and strive to imbue our product with
+        this quality. Our AI is designed to understand the emotional context of messages, ensuring that the emails it
+        generates resonate with recipients.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Accessibility</div>
+      <div class="subtitle">We are committed to making our product accessible to users of all backgrounds and abilities.
+        Our platform is designed to be user-friendly and intuitive, ensuring that anyone can create high-quality emails
+        with ease.
+      </div>
+    </div>
+  </div>
+  <div class="section our-mission" id="our-mission">
+    <div class="reason">
+      <div class="title">Our Mission</div>
+      <div class="subtitle">Our mission is to revolutionize the way people communicate through email by providing an
+        innovative, efficient, and high-quality email generation tool. We aim to empower individuals and businesses to
+        create emails that are not just read, but felt, enhancing the impact and effectiveness of their messages.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Enhance Communication Clarity</div>
+      <div class="subtitle">We strive to cut through the noise, providing tools that help our users deliver clear and
+        precise messages. Our goal is to eliminate common communication barriers and enable messages that drive
+        understanding and action.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Boost Engagement Through Personalization</div>
+      <div class="subtitle">Our platform leverages advanced personalization capabilities, allowing users to create
+        highly tailored emails that resonate with recipients on a personal level. This personalized approach
+        significantly boosts engagement rates and strengthens relationships.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Drive Efficiency in Email Campaigns</div>
+      <div class="subtitle">By automating and streamlining the email creation process, we help users save time and
+        resources, enabling them to focus on strategic activities rather than manual tasks. Our tool simplifies complex
+        processes, making it easier to launch campaigns quickly and effectively.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Innovative Design Tools</div>
+      <div class="subtitle">Our email generation tool includes a suite of innovative design tools that empower users to
+        create visually appealing emails. With intuitive interfaces and customizable templates, our tool facilitates the
+        creation of professional-quality designs that captivate audiences.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Support Sustainable Practices</div>
+      <div class="subtitle">We are committed to supporting sustainable business practices through our services. By
+        optimizing email marketing strategies, we help reduce digital waste, promoting a greener approach to digital
+        communication.
+      </div>
+    </div>
+  </div>
+
+  <div class="section get-started" id="get-started">
+    <div class="reason">
+      <div class="title">Easy Setup</div>
+      <div class="subtitle">Begin crafting effective emails in no time with our quick and easy setup process. No
+        technical expertise required—start immediately and see results from day one.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Customizable Templates</div>
+      <div class="subtitle">Access a wide array of customizable templates that suit any occasion or business need.
+        Whether you’re sending a newsletter or promotional offers, our templates make it simple to create
+        professional-looking emails that reflect your brand.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">User-Friendly Interface</div>
+      <div class="subtitle">Our intuitive interface ensures that you can navigate the tool with ease. From beginners to
+        marketing professionals, our platform is designed to enhance your email creation process without any hassle.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Data-Driven Insights</div>
+      <div class="subtitle">Improve your email strategies with actionable insights driven by data. Understand your
+        audience better and optimize your communications based on real-time feedback and analytics.
+      </div>
+    </div>
+    <div class="reason">
+      <div class="title">Continuous Support</div>
+      <div class="subtitle">Our dedicated support team is here to help you every step of the way. From technical
+        assistance to strategic advice, we ensure you have all the support you need to succeed in your email marketing
+        efforts.
+      </div>
+    </div>
+  </div>
+
   <ngx-particles id="tsparticles" [options]="PARTICLE_OPTIONS"></ngx-particles>
 </div>
