@@ -9,13 +9,18 @@
             <mat-error>
               Label already exists. Please choose other one
             </mat-error>
-          }
+          } @else if (generateLabelRequestGroup.get('name')?.hasError('maxlength') && generateLabelRequestGroup.get('name')?.touched) {
+          <mat-error>
+            Label name is too long. Label name length must be no longer then 20 symbols
+          </mat-error>
+        }
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="w-100">
           <mat-label>Enter your label description</mat-label>
           <input matInput type="text" formControlName="description" placeholder="Enter label description" class="w-100">
+
         </mat-form-field>
       </div>
     </div>
@@ -95,9 +100,6 @@
     </div>
     <button mat-flat-button class="app-button">Generate letter</button>
   </form>
-  <div>
-    {{generatedLetters$ | async}}
-  </div>
 </div>
 
 

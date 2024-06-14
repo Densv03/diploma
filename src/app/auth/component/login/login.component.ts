@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import { AuthService } from "../../../../service/auth.service";
 import { Router } from "@angular/router";
 import {HotToastService} from "@ngneat/hot-toast";
 import {catchError, of} from "rxjs";
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-login',

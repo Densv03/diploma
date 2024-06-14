@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { HotToastService } from "@ngneat/hot-toast";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { LetterService } from "../../service/letter.service";
-import { BehaviorSubject, map } from "rxjs";
 import { ValidatorService } from "../../../../validator/validator.service";
-import { ApiService } from "../../../../service/api.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-create-letter',
@@ -15,8 +14,8 @@ export class CreateLetterComponent {
   constructor(private h: HotToastService,
               private letterService: LetterService,
               private validatorService: ValidatorService,
-              private apiService: ApiService) {
-    this.form.get('mailConfigurationRequest')?.get('sentenceCount')?.valueChanges.subscribe(console.log)
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   public form: FormGroup = new FormGroup({
@@ -24,9 +23,6 @@ export class CreateLetterComponent {
     generateMailDescriptionRequest: this.getGenerateMailDescriptionFormGroup(),
     mailConfigurationRequest: this.getMailConfigFormGroup(),
   });
-
-  private generatedLettersSource = new BehaviorSubject<string>('');
-  public generatedLetters$ = this.generatedLettersSource.asObservable();
 
   public generateLabelRequestGroup = this.form.get('generateLabelRequest') as FormGroup;
 
@@ -58,14 +54,16 @@ export class CreateLetterComponent {
         loading: `Generating ${amount} ${+amount === 1 ? 'letter' : 'letters'}...`,
         success: 'Letter generated successfully',
         error: 'Error generating letter'
-      })).subscribe(res => {
-      this.generatedLettersSource.next(res as any as string);
+      })).subscribe(() => {
+      this.router.navigate(['../labels-list', this.form.value['generateLabelRequest']['name']], {
+        relativeTo: this.route
+      })
     });
   }
 
   private getGenerateLabelFormGroup(): FormGroup {
     return new FormGroup<{ name: FormControl<string | null>, description: FormControl<string | null> }>({
-      name: new FormControl<string | null>(null, [Validators.required], [this.validatorService.uniqueLabel()]),
+      name: new FormControl<string | null>(null, [Validators.required, Validators.maxLength(20)], [this.validatorService.uniqueLabel()]),
       description: new FormControl<string | null>(null, [Validators.required]),
     });
   }
@@ -91,11 +89,5 @@ export class CreateLetterComponent {
       templateCount: new FormControl<number | null>(null),
       sentenceCount: new FormControl<number>(0),
     });
-  }
-  formatLabel(value: number): string {
-    if (value >= 1) {
-      return Math.round(value) + '';
-    }
-    return `${value}`;
   }
 }

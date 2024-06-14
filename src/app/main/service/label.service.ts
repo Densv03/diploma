@@ -13,8 +13,8 @@ export class LabelService {
   constructor(private apiService: ApiService) { }
 
   public getAllLabels$(): Observable<Label[]> {
-    // return this.apiService.get<Label[]>('label');
-    return of(LABELS_MOCK);
+    return this.apiService.get<Label[]>('label');
+    // return of(LABELS_MOCK);
   }
 
   public isLabelNameAvailable$(labelName: string): Observable<{isAvailable: boolean}> {
@@ -22,7 +22,7 @@ export class LabelService {
   }
 
   public getLettersByLabelName$(labelName: string): Observable<Label> {
-    // return this.apiService.get<Label>(`label/letterLog/${labelName}`);
-    return of(LABEL_MOCK) 
+    return this.apiService.get<Label>(`label/letterLog/${labelName}`);
+    // return of(LABEL_MOCK)
   }
 }

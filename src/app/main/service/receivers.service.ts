@@ -24,7 +24,7 @@ export class ReceiversService {
   }
 
   public getAllReceiverGroups(): Observable<Group[]> {
-    // return this.apiService.get('groups/all');
-    return of(RECEIVERS_MOCK)
+    return this.apiService.get('groups/all');
+    // return of(RECEIVERS_MOCK)
   }
 }
